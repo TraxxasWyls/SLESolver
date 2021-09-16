@@ -24,4 +24,6 @@ public protocol MatrixOperations {
     func line(withIndex index: Int) -> [Double]
 
     func element(atLine lineIndex: Int, withIndex elementIndex: Int) -> Double
+
+    func element(_ element: LineWithElement) -> Double
 }

@@ -47,14 +47,15 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
         return resultLine
     }
 
-    private func makeZero(_ matrix: Matrix, using line: LineWithElement) {
+    private func makeZero(_ matrix: Matrix, using lineWithElement: LineWithElement) {
         var indexesToSub: [Int] = Array(0...matrix.elementsArray.count - 1)
-        indexesToSub.remove(at: line.lineIndex)
+        indexesToSub.remove(at: lineWithElement.lineIndex)
         indexesToSub.forEach {
             let subtrahend = matrix.line(
-                withIndex: line.lineIndex,
-                multiplyedBy: matrix.element(atLine: $0, withIndex: line.lineIndex)
+                withIndex: lineWithElement.lineIndex,
+                multiplyedBy: matrix.element(atLine: $0, withIndex: lineWithElement.lineIndex)
             )
+            matrix.multiply(rowWithIndex: $0, to: matrix.element(lineWithElement))
             matrix.substruct(fromRowIndex: $0, line: subtrahend)
         }
     }

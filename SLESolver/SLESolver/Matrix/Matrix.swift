@@ -67,6 +67,10 @@ extension Matrix: MatrixOperations {
             return $0 - line[count]
         }
     }
+
+    public func element(_ element: LineWithElement) -> Double {
+        elementsArray[element.lineIndex][element.elementIndex]
+    }
 }
 
 // MARK: - CustomStringConvertible
