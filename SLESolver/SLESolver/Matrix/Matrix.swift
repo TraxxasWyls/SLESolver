@@ -54,7 +54,7 @@ extension Matrix: CustomStringConvertible {
     public var description: String {
         var description = "{\n"
         elementsArray.forEach {
-            description = description + "\($0)" + "\n"
+            description = "  " + description + "\($0)" + "\n"
         }
         return description + "}"
     }
