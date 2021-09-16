@@ -48,3 +48,16 @@ extension Matrix: MatrixOperations {
         }
     }
 }
+
+// MARK: - CustomStringConvertible
+
+extension Matrix: CustomStringConvertible {
+
+    public var description: String {
+        var description = "[ "
+        elementsArray.forEach {
+            description = description + "\($0)" + "/n"
+        }
+        return description + " ]"
+    }
+}
