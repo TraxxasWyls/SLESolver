@@ -19,7 +19,7 @@ public class Matrix {
 
     /// Default initalizer
     /// - Parameter array: target elements array
-    init(_ array: [[Double]]) {
+    public init(_ array: [[Double]]) {
         elementsArray = array
     }
 }
