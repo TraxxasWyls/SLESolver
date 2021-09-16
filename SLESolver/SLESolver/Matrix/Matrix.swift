@@ -13,7 +13,7 @@ public class Matrix {
 
     // MARK: - Properties
 
-    private var elementsArray: [[Double]]
+    var elementsArray: [[Double]]
 
     // MARK: - Initializers
 
@@ -23,6 +23,8 @@ public class Matrix {
         elementsArray = array
     }
 }
+
+// MARK: - MatrixOperations
 
 extension Matrix: MatrixOperations {
 
@@ -43,7 +45,27 @@ extension Matrix: MatrixOperations {
     }
 
     public func multiply(rowWithIndex index: Int, to multiplayer: Double) {
-        elementsArray[index] = elementsArray[index].map { $0 * multiplayer }
+        elementsArray[index] = line(withIndex: index, multiplyedBy: multiplayer)
+    }
+
+    public func line(withIndex index: Int, multiplyedBy multiplayer: Double) -> [Double] {
+        elementsArray[index].map { $0 * multiplayer }
+    }
+
+    public func line(withIndex index: Int) -> [Double] {
+        elementsArray[index]
+    }
+
+    public func element(atLine lineIndex: Int, withIndex elementIndex: Int) -> Double {
+        elementsArray[lineIndex][elementIndex]
+    }
+
+    public func substruct(fromRowIndex index: Int, line: [Double]) {
+        var count = -1
+        elementsArray[index] = elementsArray[index].map {
+            count += 1
+            return $0 - line[count]
+        }
     }
 }
 
@@ -54,7 +76,7 @@ extension Matrix: CustomStringConvertible {
     public var description: String {
         var description = "{\n"
         elementsArray.forEach {
-            description = "  " + description + "\($0)" + "\n"
+            description =  description + "\($0)" + "\n"
         }
         return description + "}"
     }

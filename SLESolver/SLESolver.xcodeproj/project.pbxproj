@@ -14,6 +14,9 @@
 		CBD38C8526F3620E00521E3F /* MatrixOperationsTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8226F3620E00521E3F /* MatrixOperationsTrash.swift */; };
 		CBD38C8726F3629000521E3F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8626F3629000521E3F /* Matrix.swift */; };
 		CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8A26F363F100521E3F /* MatrixOperations.swift */; };
+		CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9026F36DFC00521E3F /* MatrixLinearizer.swift */; };
+		CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */; };
+		CBD38C9926F3759A00521E3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9826F3759A00521E3F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		CBD38C8226F3620E00521E3F /* MatrixOperationsTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixOperationsTrash.swift; sourceTree = "<group>"; };
 		CBD38C8626F3629000521E3F /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		CBD38C8A26F363F100521E3F /* MatrixOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOperations.swift; sourceTree = "<group>"; };
+		CBD38C9026F36DFC00521E3F /* MatrixLinearizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLinearizer.swift; sourceTree = "<group>"; };
+		CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLinearizerImplementation.swift; sourceTree = "<group>"; };
+		CBD38C9826F3759A00521E3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
+				CBD38C9426F3757100521E3F /* BusinessLayer  */,
+				CBD38C8D26F36DB900521E3F /* MatrixLinearizer */,
 				CBD38C8826F363C800521E3F /* Trash */,
 				CBD38C7F26F361C400521E3F /* Matrix */,
 				CBD38C0F26F357E600521E3F /* SLESolver.h */,
@@ -120,6 +128,47 @@
 				CBD38C8A26F363F100521E3F /* MatrixOperations.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CBD38C8D26F36DB900521E3F /* MatrixLinearizer */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C8F26F36DD800521E3F /* Concrete */,
+				CBD38C8E26F36DC500521E3F /* Protocol */,
+			);
+			path = MatrixLinearizer;
+			sourceTree = "<group>";
+		};
+		CBD38C8E26F36DC500521E3F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CBD38C8F26F36DD800521E3F /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C9026F36DFC00521E3F /* MatrixLinearizer.swift */,
+			);
+			path = Concrete;
+			sourceTree = "<group>";
+		};
+		CBD38C9426F3757100521E3F /* BusinessLayer  */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C9526F3758100521E3F /* Constants */,
+			);
+			path = "BusinessLayer ";
+			sourceTree = "<group>";
+		};
+		CBD38C9526F3758100521E3F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C9826F3759A00521E3F /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +282,9 @@
 			files = (
 				CBD38C8326F3620E00521E3F /* Gauss.swift in Sources */,
 				CBD38C8526F3620E00521E3F /* MatrixOperationsTrash.swift in Sources */,
+				CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */,
+				CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */,
+				CBD38C9926F3759A00521E3F /* Constants.swift in Sources */,
 				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
 				CBD38C8726F3629000521E3F /* Matrix.swift in Sources */,
 			);
