@@ -14,7 +14,6 @@
 		CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8A26F363F100521E3F /* MatrixOperations.swift */; };
 		CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9026F36DFC00521E3F /* MatrixLinearizer.swift */; };
 		CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */; };
-		CBD38C9926F3759A00521E3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9826F3759A00521E3F /* Constants.swift */; };
 		CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9D26F39BDF00521E3F /* SLESolver.swift */; };
 		CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		CBD38C8A26F363F100521E3F /* MatrixOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOperations.swift; sourceTree = "<group>"; };
 		CBD38C9026F36DFC00521E3F /* MatrixLinearizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLinearizer.swift; sourceTree = "<group>"; };
 		CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLinearizerImplementation.swift; sourceTree = "<group>"; };
-		CBD38C9826F3759A00521E3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CBD38C9D26F39BDF00521E3F /* SLESolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolver.swift; sourceTree = "<group>"; };
 		CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolverImplementation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +83,6 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
-				CBD38C9526F3758100521E3F /* Constants */,
 				CBD38C9A26F39B9B00521E3F /* Solver */,
 				CBD38C8D26F36DB900521E3F /* MatrixLinearizer */,
 				CBD38C7F26F361C400521E3F /* MutableMatrix */,
@@ -144,14 +141,6 @@
 				CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */,
 			);
 			path = Concrete;
-			sourceTree = "<group>";
-		};
-		CBD38C9526F3758100521E3F /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				CBD38C9826F3759A00521E3F /* Constants.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		CBD38C9A26F39B9B00521E3F /* Solver */ = {
@@ -299,7 +288,6 @@
 				CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */,
 				CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */,
 				CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */,
-				CBD38C9926F3759A00521E3F /* Constants.swift in Sources */,
 				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
 				CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */,
 				CBD38C8726F3629000521E3F /* MutableMatrix.swift in Sources */,

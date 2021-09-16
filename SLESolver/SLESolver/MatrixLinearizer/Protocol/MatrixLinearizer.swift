@@ -11,5 +11,5 @@ import Foundation
 
 public protocol MatrixLinearizer {
 
-    func liniarize(_ matrix: MutableMatrix) -> MutableMatrix
+    func liniarize(_ matrix: MutableMatrix) throws -> MutableMatrix
 }

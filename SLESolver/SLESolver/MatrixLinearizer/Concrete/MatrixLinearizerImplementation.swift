@@ -26,7 +26,7 @@ public struct ElementPosition {
 
 // MARK: - MatrixLinearizerImplementation
 
-public final class MatrixLinearizerImplementation: MatrixLinearizer {
+public final class MatrixLinearizerImplementation {
 
     // MARK: - Properties
 
@@ -38,20 +38,20 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
 
     // MARK: - Private
 
-    private func firstNonZeroElementPosition(_ matrix: MutableMatrix) -> ElementPosition {
+    private func firstNonZeroElementPosition(_ matrix: MutableMatrix) throws -> ElementPosition {
         var lines = [ElementPosition]()
         var lineIndex: Int = 0
-        matrix.elementsArray.forEach {
+        try matrix.elementsArray.forEach {
             if let nonZeroElement = $0.firstIndex(where: { element in element != .zero }) {
                 guard nonZeroElement != matrix.elementsArray[0].count - 1 || matrix.isSquare
-                else { fatalError(Contants.ErrorMessages.zeroSolutionsMessage) }
+                else { throw SolvingError.zeroSolutions }
                 if !usedLineIndexes.contains(lineIndex) {
                     lines.append(.init(lineIndex: lineIndex, elementIndex: nonZeroElement))
                 }
-            } else { fatalError(Contants.ErrorMessages.eternityMessage) }
+            } else { throw SolvingError.eternity }
             lineIndex += 1
         }
-        if lines.count == .zero { fatalError(Contants.ErrorMessages.eternityMessage) }
+        if lines.count == .zero { throw SolvingError.eternity }
         let resultLine = lines.min { $0.elementIndex < $1.elementIndex }!
         usedLineIndexes.append(resultLine.lineIndex)
         return resultLine
@@ -69,13 +69,16 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
             matrix.substruct(fromRowIndex: $0, line: subtrahend)
         }
     }
+}
 
-    // MARK: - MatrixLinearizer
+// MARK: - MatrixLinearizer
 
-    public func liniarize(_ matrix: MutableMatrix) -> MutableMatrix {
+extension MatrixLinearizerImplementation: MatrixLinearizer {
+
+    public func liniarize(_ matrix: MutableMatrix) throws -> MutableMatrix {
         usedLineIndexes = []
         while usedLineIndexes.count < matrix.elementsArray.count {
-            let lineWithNonZeroElement = firstNonZeroElementPosition(matrix)
+            let lineWithNonZeroElement = try firstNonZeroElementPosition(matrix)
             makeZero(matrix, using: lineWithNonZeroElement)
             print(matrix)
             print("\n")

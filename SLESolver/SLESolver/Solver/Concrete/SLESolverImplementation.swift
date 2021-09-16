@@ -7,6 +7,13 @@
 
 import Foundation
 
+// MARK: - SolvingError
+
+public enum SolvingError: Error {
+    case eternity
+    case zeroSolutions
+}
+
 // MARK: - SLESolverImplementation
 
 public final class SLESolverImplementation {
@@ -51,8 +58,8 @@ public final class SLESolverImplementation {
 
 extension SLESolverImplementation: SLESolver {
 
-    public func solve(_ matrix: MutableMatrix) -> Result {
-        let linearizedMatrix = linearizer.liniarize(matrix)
+    public func solve(_ matrix: MutableMatrix) throws -> Result {
+        let linearizedMatrix = try linearizer.liniarize(matrix)
         let sortedMatrix = sortByDiagonal(linearizedMatrix)
         print(sortedMatrix)
         return calculateSolve(sortedMatrix)
