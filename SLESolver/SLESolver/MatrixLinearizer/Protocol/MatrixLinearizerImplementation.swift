@@ -32,16 +32,15 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
         var lines = [LineWithElement]()
         var lineIndex: Int = 0
         matrix.elementsArray.forEach {
-            if let nonZeroElement = $0.firstIndex(where: { element in
-                element != 0
-            }) {
-                guard !usedLineIndexes.contains(lineIndex) else { return }
-                lines.append(.init(lineIndex: lineIndex, elementIndex: nonZeroElement))
+            if let nonZeroElement = $0.firstIndex(where: { element in element != 0 }) {
+                if !usedLineIndexes.contains(lineIndex) {
+                    lines.append(.init(lineIndex: lineIndex, elementIndex: nonZeroElement))
+                }
             } else {
                 fatalError(Contants.eternityMessage)
             }
             lineIndex += 1
-         }
+        }
         let resultLine = lines.min { $0.elementIndex < $1.elementIndex }!
         usedLineIndexes.append(resultLine.lineIndex)
         return resultLine
@@ -68,7 +67,7 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
             let lineWithNonZeroElement = lineIndexWithMinIndexNonZeroElement(matrix)
             makeZero(matrix, using: lineWithNonZeroElement)
             print(matrix)
-            print("\n\n")
+            print("\n")
         }
         return matrix
     }
