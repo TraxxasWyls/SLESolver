@@ -22,6 +22,10 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
 
     private var usedLineIndexes: [Int] = []
 
+    // MARK: - Initializers
+
+    public init() { }
+
     // MARK: - Private
 
     private func lineIndexWithMinIndexNonZeroElement(_ matrix: Matrix) -> LineWithElement {
