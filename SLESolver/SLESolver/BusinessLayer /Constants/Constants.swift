@@ -9,4 +9,5 @@ import Foundation
 
 enum Contants {
     static let eternityMessage: String = "Бесконечно много решений"
+    static let zeroSolutionsMessage: String = "Решений нет"
 }

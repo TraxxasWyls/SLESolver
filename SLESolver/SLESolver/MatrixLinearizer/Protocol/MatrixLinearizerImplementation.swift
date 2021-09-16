@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: - LineWithElement
+// MARK: - ElementPosition
 
-public struct LineWithElement {
+public struct ElementPosition {
     let lineIndex: Int
     let elementIndex: Int
 }
@@ -28,31 +28,32 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
 
     // MARK: - Private
 
-    private func lineIndexWithMinIndexNonZeroElement(_ matrix: Matrix) -> LineWithElement {
-        var lines = [LineWithElement]()
+    private func firstNonZeroElementPosition(_ matrix: Matrix) -> ElementPosition {
+        var lines = [ElementPosition]()
         var lineIndex: Int = 0
         matrix.elementsArray.forEach {
-            if let nonZeroElement = $0.firstIndex(where: { element in element != 0 }) {
+            if let nonZeroElement = $0.firstIndex(where: { element in element != .zero }) {
+                guard nonZeroElement != matrix.elementsArray.count - 1 || matrix.isSquare
+                else { fatalError(Contants.zeroSolutionsMessage) }
                 if !usedLineIndexes.contains(lineIndex) {
                     lines.append(.init(lineIndex: lineIndex, elementIndex: nonZeroElement))
                 }
-            } else {
-                fatalError(Contants.eternityMessage)
-            }
+            } else { fatalError(Contants.eternityMessage) }
             lineIndex += 1
         }
+        if lines.count == .zero { fatalError(Contants.eternityMessage) }
         let resultLine = lines.min { $0.elementIndex < $1.elementIndex }!
         usedLineIndexes.append(resultLine.lineIndex)
         return resultLine
     }
 
-    private func makeZero(_ matrix: Matrix, using lineWithElement: LineWithElement) {
+    private func makeZero(_ matrix: Matrix, using lineWithElement: ElementPosition) {
         var indexesToSub: [Int] = Array(0...matrix.elementsArray.count - 1)
         indexesToSub.remove(at: lineWithElement.lineIndex)
         indexesToSub.forEach {
             let subtrahend = matrix.line(
                 withIndex: lineWithElement.lineIndex,
-                multiplyedBy: matrix.element(atLine: $0, withIndex: lineWithElement.lineIndex)
+                multiplyedBy: matrix.element(atLine: $0, withIndex: lineWithElement.elementIndex)
             )
             matrix.multiply(rowWithIndex: $0, to: matrix.element(lineWithElement))
             matrix.substruct(fromRowIndex: $0, line: subtrahend)
@@ -64,7 +65,7 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
     public func liniarize(_ matrix: Matrix) -> Matrix {
         usedLineIndexes = []
         while usedLineIndexes.count < matrix.elementsArray.count {
-            let lineWithNonZeroElement = lineIndexWithMinIndexNonZeroElement(matrix)
+            let lineWithNonZeroElement = firstNonZeroElementPosition(matrix)
             makeZero(matrix, using: lineWithNonZeroElement)
             print(matrix)
             print("\n")

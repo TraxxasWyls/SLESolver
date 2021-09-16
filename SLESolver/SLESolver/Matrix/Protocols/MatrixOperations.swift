@@ -11,6 +11,8 @@ import Foundation
 
 public protocol MatrixOperations {
 
+    var isSquare: Bool { get }
+
     func sum(toRowIndex index: Int, rowWithIndex rowToSumIndex: Int)
 
     func substruct(fromRowIndex index: Int, rowWithIndex rowToSubIndex: Int)
@@ -25,5 +27,5 @@ public protocol MatrixOperations {
 
     func element(atLine lineIndex: Int, withIndex elementIndex: Int) -> Double
 
-    func element(_ element: LineWithElement) -> Double
+    func element(_ element: ElementPosition) -> Double
 }

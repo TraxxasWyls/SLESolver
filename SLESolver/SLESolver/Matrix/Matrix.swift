@@ -28,6 +28,10 @@ public class Matrix {
 
 extension Matrix: MatrixOperations {
 
+    public var isSquare: Bool {
+        elementsArray.count == elementsArray[0].count
+    }
+
     public func sum(toRowIndex index: Int, rowWithIndex rowToSumIndex: Int) {
         var count = -1
         elementsArray[index] = elementsArray[index].map {
@@ -68,7 +72,7 @@ extension Matrix: MatrixOperations {
         }
     }
 
-    public func element(_ element: LineWithElement) -> Double {
+    public func element(_ element: ElementPosition) -> Double {
         elementsArray[element.lineIndex][element.elementIndex]
     }
 }
