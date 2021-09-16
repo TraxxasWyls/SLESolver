@@ -10,6 +10,10 @@
 		CBD38C1626F357E600521E3F /* SLESolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD38C0C26F357E600521E3F /* SLESolver.framework */; };
 		CBD38C1B26F357E600521E3F /* SLESolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C1A26F357E600521E3F /* SLESolverTests.swift */; };
 		CBD38C1D26F357E600521E3F /* SLESolver.h in Headers */ = {isa = PBXBuildFile; fileRef = CBD38C0F26F357E600521E3F /* SLESolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBD38C8326F3620E00521E3F /* Gauss.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8026F3620E00521E3F /* Gauss.swift */; };
+		CBD38C8526F3620E00521E3F /* MatrixOperationsTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8226F3620E00521E3F /* MatrixOperationsTrash.swift */; };
+		CBD38C8726F3629000521E3F /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8626F3629000521E3F /* Matrix.swift */; };
+		CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C8A26F363F100521E3F /* MatrixOperations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		CBD38C1526F357E600521E3F /* SLESolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLESolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD38C1A26F357E600521E3F /* SLESolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolverTests.swift; sourceTree = "<group>"; };
 		CBD38C1C26F357E600521E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBD38C8026F3620E00521E3F /* Gauss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gauss.swift; sourceTree = "<group>"; };
+		CBD38C8226F3620E00521E3F /* MatrixOperationsTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixOperationsTrash.swift; sourceTree = "<group>"; };
+		CBD38C8626F3629000521E3F /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		CBD38C8A26F363F100521E3F /* MatrixOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,8 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
+				CBD38C8826F363C800521E3F /* Trash */,
+				CBD38C7F26F361C400521E3F /* Matrix */,
 				CBD38C0F26F357E600521E3F /* SLESolver.h */,
 				CBD38C1026F357E600521E3F /* Info.plist */,
 			);
@@ -84,6 +94,32 @@
 				CBD38C1C26F357E600521E3F /* Info.plist */,
 			);
 			path = SLESolverTests;
+			sourceTree = "<group>";
+		};
+		CBD38C7F26F361C400521E3F /* Matrix */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C8926F363DD00521E3F /* Protocols */,
+				CBD38C8626F3629000521E3F /* Matrix.swift */,
+			);
+			path = Matrix;
+			sourceTree = "<group>";
+		};
+		CBD38C8826F363C800521E3F /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C8026F3620E00521E3F /* Gauss.swift */,
+				CBD38C8226F3620E00521E3F /* MatrixOperationsTrash.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		CBD38C8926F363DD00521E3F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38C8A26F363F100521E3F /* MatrixOperations.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +183,7 @@
 				TargetAttributes = {
 					CBD38C0B26F357E600521E3F = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					CBD38C1426F357E600521E3F = {
 						CreatedOnToolsVersion = 12.5;
@@ -194,6 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBD38C8326F3620E00521E3F /* Gauss.swift in Sources */,
+				CBD38C8526F3620E00521E3F /* MatrixOperationsTrash.swift in Sources */,
+				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
+				CBD38C8726F3629000521E3F /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +381,7 @@
 		CBD38C2126F357E600521E3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -357,6 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Savinov.SLESolver;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -364,6 +407,7 @@
 		CBD38C2226F357E600521E3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -388,6 +432,7 @@
 		CBD38C2426F357E600521E3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HFD95R9VP2;
@@ -406,6 +451,7 @@
 		CBD38C2526F357E600521E3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HFD95R9VP2;
