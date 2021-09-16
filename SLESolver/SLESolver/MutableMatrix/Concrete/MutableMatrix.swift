@@ -1,5 +1,5 @@
 //
-//  Matrix.swift
+//  MutableMatrix.swift
 //  SLESolver
 //
 //  Created by Дмитрий Савинов on 16.09.2021.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - Matrix
+// MARK: - MutableMatrix
 
-public class Matrix {
+public class MutableMatrix {
 
     // MARK: - Properties
 
-    var elementsArray: [[Double]]
+    public var elementsArray: [[Double]]
 
     // MARK: - Initializers
 
@@ -26,7 +26,7 @@ public class Matrix {
 
 // MARK: - MatrixOperations
 
-extension Matrix: MatrixOperations {
+extension MutableMatrix: MatrixOperations {
 
     public var isSquare: Bool {
         elementsArray.count == elementsArray[0].count
@@ -79,7 +79,7 @@ extension Matrix: MatrixOperations {
 
 // MARK: - CustomStringConvertible
 
-extension Matrix: CustomStringConvertible {
+extension MutableMatrix: CustomStringConvertible {
 
     public var description: String {
         var description = "{\n"

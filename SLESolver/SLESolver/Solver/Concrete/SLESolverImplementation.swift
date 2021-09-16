@@ -22,7 +22,7 @@ public final class SLESolverImplementation {
 
     // MARK: - Private
 
-    private func sortByDiagonal(_ matrix: Matrix) -> Matrix {
+    private func sortByDiagonal(_ matrix: MutableMatrix) -> MutableMatrix {
         var linePositions = [Int: Int]()
         var lineIndex = -1
         matrix.elementsArray.forEach { line in
@@ -36,7 +36,7 @@ public final class SLESolverImplementation {
         return matrix
     }
 
-    private func calculateSolve(_ matrix: Matrix) -> Result {
+    private func calculateSolve(_ matrix: MutableMatrix) -> Result {
         var result = Result()
         let array = matrix.elementsArray
         let lineLenght = array[0].count
@@ -51,7 +51,7 @@ public final class SLESolverImplementation {
 
 extension SLESolverImplementation: SLESolver {
 
-    public func solve(_ matrix: Matrix) -> Result {
+    public func solve(_ matrix: MutableMatrix) -> Result {
         let linearizedMatrix = linearizer.liniarize(matrix)
         let sortedMatrix = sortByDiagonal(linearizedMatrix)
         print(sortedMatrix)

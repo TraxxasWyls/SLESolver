@@ -15,5 +15,5 @@ public typealias Result = [Double]
 
 public protocol SLESolver {
 
-    func solve(_ matrix: Matrix) -> Result
+    func solve(_ matrix: MutableMatrix) -> Result
 }

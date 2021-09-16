@@ -11,7 +11,11 @@ import Foundation
 
 public protocol MatrixOperations {
 
+    // MARK: - Properties
+
     var isSquare: Bool { get }
+
+    // MARK: - Methods
 
     func sum(toRowIndex index: Int, rowWithIndex rowToSumIndex: Int)
 
