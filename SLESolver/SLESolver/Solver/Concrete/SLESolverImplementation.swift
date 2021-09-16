@@ -31,13 +31,8 @@ public final class SLESolverImplementation {
                 linePositions[lineIndex] = elementIndex
             }
         }
-        var resultArray = [[Double]]()
-        linePositions.keys.forEach {
-            if let inserationIndex = linePositions[$0] {
-                resultArray.insert(matrix.line(withIndex: $0), at: inserationIndex)
-            }
-        }
-        matrix.elementsArray = resultArray
+        let sortedLinePositions = linePositions.sorted { $0.value < $1.value }
+        matrix.elementsArray = sortedLinePositions.map { matrix.line(withIndex: $0.key) }
         return matrix
     }
 
