@@ -33,7 +33,7 @@ public final class MatrixLinearizerImplementation: MatrixLinearizer {
         var lineIndex: Int = 0
         matrix.elementsArray.forEach {
             if let nonZeroElement = $0.firstIndex(where: { element in element != .zero }) {
-                guard nonZeroElement != matrix.elementsArray.count - 1 || matrix.isSquare
+                guard nonZeroElement != matrix.elementsArray[0].count - 1 || matrix.isSquare
                 else { fatalError(Contants.zeroSolutionsMessage) }
                 if !usedLineIndexes.contains(lineIndex) {
                     lines.append(.init(lineIndex: lineIndex, elementIndex: nonZeroElement))
