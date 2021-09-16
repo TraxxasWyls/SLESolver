@@ -27,25 +27,23 @@ public class Matrix {
 extension Matrix: MatrixOperations {
 
     public func sum(toRowIndex index: Int, rowWithIndex rowToSumIndex: Int) {
-        var count = 0
-        for var element in elementsArray[index] {
-            element = element + elementsArray[rowToSumIndex][count]
+        var count = -1
+        elementsArray[index] = elementsArray[index].map {
             count += 1
+            return $0 + elementsArray[rowToSumIndex][count]
         }
     }
 
     public func substruct(fromRowIndex index: Int, rowWithIndex rowToSubIndex: Int) {
-        var count = 0
-        for var element in elementsArray[index] {
-            element = element - elementsArray[rowToSubIndex][count]
+        var count = -1
+        elementsArray[index] = elementsArray[index].map {
             count += 1
+            return $0 - elementsArray[rowToSubIndex][count]
         }
     }
 
     public func multiply(rowWithIndex index: Int, to multiplayer: Double) {
-        for var element in elementsArray[index] {
-            element = element * multiplayer
-        }
+        elementsArray[index] = elementsArray[index].map { $0 * multiplayer }
     }
 }
 
@@ -54,10 +52,10 @@ extension Matrix: MatrixOperations {
 extension Matrix: CustomStringConvertible {
 
     public var description: String {
-        var description = "[ \n "
+        var description = "{\n"
         elementsArray.forEach {
-            description = " " + description + "\($0)" + "\n"
+            description = description + "\($0)" + "\n"
         }
-        return description + " ]"
+        return description + "}"
     }
 }
