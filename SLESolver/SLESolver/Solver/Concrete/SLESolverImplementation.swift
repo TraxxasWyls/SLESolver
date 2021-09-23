@@ -29,20 +29,6 @@ public final class SLESolverImplementation {
 
     // MARK: - Private
 
-    private func sortByDiagonal(_ matrix: MutableMatrix) -> MutableMatrix {
-        var linePositions = [Int: Int]()
-        var lineIndex = -1
-        matrix.elementsArray.forEach { line in
-            lineIndex += 1
-            if let elementIndex = line.firstIndex(where: { $0 != .zero }) {
-                linePositions[lineIndex] = elementIndex
-            }
-        }
-        let sortedLinePositions = linePositions.sorted { $0.value < $1.value }
-        matrix.elementsArray = sortedLinePositions.map { matrix.line(withIndex: $0.key) }
-        return matrix
-    }
-
     private func calculateSolve(_ matrix: MutableMatrix) -> Result {
         var result = Result()
         let array = matrix.elementsArray
@@ -60,8 +46,6 @@ extension SLESolverImplementation: SLESolver {
 
     public func solve(_ matrix: MutableMatrix) throws -> Result {
         let linearizedMatrix = try linearizer.liniarize(matrix)
-        let sortedMatrix = sortByDiagonal(linearizedMatrix)
-        print(sortedMatrix)
-        return calculateSolve(sortedMatrix)
+        return calculateSolve(linearizedMatrix)
     }
 }

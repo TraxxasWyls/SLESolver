@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D16D26FCD81F00BDD97E /* Array.swift */; };
 		CBD38C1626F357E600521E3F /* SLESolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD38C0C26F357E600521E3F /* SLESolver.framework */; };
 		CBD38C1B26F357E600521E3F /* SLESolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C1A26F357E600521E3F /* SLESolverTests.swift */; };
 		CBD38C1D26F357E600521E3F /* SLESolver.h in Headers */ = {isa = PBXBuildFile; fileRef = CBD38C0F26F357E600521E3F /* SLESolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,6 +17,8 @@
 		CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */; };
 		CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9D26F39BDF00521E3F /* SLESolver.swift */; };
 		CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */; };
+		CBD38CA726F4B37100521E3F /* DetCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38CA626F4B37100521E3F /* DetCompute.swift */; };
+		CBD38CA926F4B3C100521E3F /* DetComputeImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38CA826F4B3C100521E3F /* DetComputeImplementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CBA0D16D26FCD81F00BDD97E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CBD38C0C26F357E600521E3F /* SLESolver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SLESolver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD38C0F26F357E600521E3F /* SLESolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLESolver.h; sourceTree = "<group>"; };
 		CBD38C1026F357E600521E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		CBD38C9226F36E6700521E3F /* MatrixLinearizerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLinearizerImplementation.swift; sourceTree = "<group>"; };
 		CBD38C9D26F39BDF00521E3F /* SLESolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolver.swift; sourceTree = "<group>"; };
 		CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolverImplementation.swift; sourceTree = "<group>"; };
+		CBD38CA626F4B37100521E3F /* DetCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetCompute.swift; sourceTree = "<group>"; };
+		CBD38CA826F4B3C100521E3F /* DetComputeImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetComputeImplementation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBA0D16C26FCD80800BDD97E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBA0D16D26FCD81F00BDD97E /* Array.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CBD38C0226F357E600521E3F = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +97,8 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
+				CBA0D16C26FCD80800BDD97E /* Extensions */,
+				CBD38CA326F4B32B00521E3F /* DetCompute */,
 				CBD38C9A26F39B9B00521E3F /* Solver */,
 				CBD38C8D26F36DB900521E3F /* MatrixLinearizer */,
 				CBD38C7F26F361C400521E3F /* MutableMatrix */,
@@ -174,6 +190,31 @@
 				CBD38C8626F3629000521E3F /* MutableMatrix.swift */,
 			);
 			path = Concrete;
+			sourceTree = "<group>";
+		};
+		CBD38CA326F4B32B00521E3F /* DetCompute */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38CA526F4B35C00521E3F /* Protocols */,
+				CBD38CA426F4B35500521E3F /* Concrete */,
+			);
+			path = DetCompute;
+			sourceTree = "<group>";
+		};
+		CBD38CA426F4B35500521E3F /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38CA826F4B3C100521E3F /* DetComputeImplementation.swift */,
+			);
+			path = Concrete;
+			sourceTree = "<group>";
+		};
+		CBD38CA526F4B35C00521E3F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38CA626F4B37100521E3F /* DetCompute.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,11 +326,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */,
 				CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */,
+				CBD38CA926F4B3C100521E3F /* DetComputeImplementation.swift in Sources */,
 				CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */,
 				CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */,
 				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
 				CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */,
+				CBD38CA726F4B37100521E3F /* DetCompute.swift in Sources */,
 				CBD38C8726F3629000521E3F /* MutableMatrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
