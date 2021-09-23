@@ -11,5 +11,8 @@ import Foundation
 
 public protocol MatrixLinearizer {
 
+    var detMultiplyer: Double { get }
+    var linesSwapCount: Int { get }
+
     func liniarize(_ matrix: MutableMatrix) throws -> MutableMatrix
 }

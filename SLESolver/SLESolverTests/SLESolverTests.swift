@@ -8,15 +8,7 @@
 import XCTest
 @testable import SLESolver
 
-//
-//  main.swift
-//  SLESolverExample
-//
-//  Created by Дмитрий Савинов on 16.09.2021.
-//
-
-import Foundation
-import SLESolver
+// MARK: - Private
 
 private func solve(_ array: [[Double]]) throws -> Result {
     let matrix = MutableMatrix(array)
@@ -26,7 +18,19 @@ private func solve(_ array: [[Double]]) throws -> Result {
     return result
 }
 
+private func calculateDet(_ array: [[Double]]) throws -> Double {
+    let matrix = MutableMatrix(array)
+    let detCompute = DetComputeImplementation()
+    let result = try detCompute.calculateDet(matrix)
+    print("Resulting det \(result)\n")
+    return result
+}
+
+// MARK: - SLESolverTests
+
 class SLESolverTests: XCTestCase {
+
+    // MARK: - Solve
 
     func testExample1() throws {
         let example1: [[Double]] = [
@@ -84,7 +88,7 @@ class SLESolverTests: XCTestCase {
             [14, 15, 16, 17, 18],
             [19, 20, 21, 23, 9],
         ]
-        XCTAssert(try solve(example2) == [ -9.6, 3.2, 21.4, -14])
+        XCTAssert(try solve(example2) == [-9.6, 3.2, 21.4, -14])
     }
 
     func testExample7() throws {
@@ -95,5 +99,137 @@ class SLESolverTests: XCTestCase {
             [0, 0, 0, 1, 1],
         ]
         XCTAssert(try solve(example2) == [1, 1, 1, 1])
+    }
+
+    // MARK: - Det
+
+    func testExample8() throws {
+        let example2: [[Double]] = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ]
+        XCTAssert(try calculateDet(example2) == 1)
+    }
+
+    func testExample9() throws {
+        let example2: [[Double]] = [
+            [2, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 2, 0],
+            [0, 0, 0, 1]
+        ]
+        XCTAssert(try calculateDet(example2) == 4)
+    }
+
+    func testExample10() throws {
+        let example2: [[Double]] = [
+            [2, 0, 0, 0, 1],
+            [0, 1, 0, 0, 1],
+            [0, 0, 2, 0, 1],
+            [0, 0, 0, 1, 1]
+        ]
+        XCTAssertThrowsError(try  calculateDet(example2)) { error in
+            XCTAssertEqual(error as? DetError, DetError.notSquareMatrix)
+        }
+    }
+
+    func testExample11() throws {
+        let example2: [[Double]] = [
+            [2, 4, 5],
+            [1, 5, 9],
+            [-8, -3, -1]
+        ]
+        XCTAssert(try calculateDet(example2) == -55)
+    }
+
+    func testExample12() throws {
+        let example2: [[Double]] = [
+            [15, 55, -1, 0, 0],
+            [3, 3, 3, 2, 16],
+            [1, 0, 0, 0, 0],
+            [-7, 6, 0, 0, 0],
+            [-4, 1, 1, 0, 23]
+        ]
+        XCTAssert(try calculateDet(example2) == -276)
+    }
+
+    func testExample13() throws {
+        let example2: [[Double]] = [
+            [1, 0, 0],
+            [0, 0, 1],
+            [0, 1, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == -1)
+    }
+
+    func testExample14() throws {
+        let example2: [[Double]] = [
+            [0, 0, 1],
+            [1, 0, 0],
+            [0, 1, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == 1)
+    }
+
+    func testExample15() throws {
+        let example2: [[Double]] = [
+            [1550, 0, 0, 0],
+            [0, 255, 22, 0],
+            [11, 0, 2, 0],
+            [0, 0, 0, 1]
+        ]
+        XCTAssert(try calculateDet(example2).distance(to: 790500) <= 0.0000000001)
+    }
+
+    func testExample16() throws {
+        let example2: [[Double]] = [
+            [15, 55, -1, 0, 0, 1],
+            [3, 3, 3, 2, 16, 2],
+            [1, 0, 0, 0, 0, 6],
+            [-7, 6, 0, 0, 0, 8],
+            [-4, 1, 1, 0, 23, 24],
+            [-4, 1, 1, 0, 23, 24]
+        ]
+        XCTAssert(try calculateDet(example2) == 0)
+    }
+
+    func testExample17() throws {
+        let example2: [[Double]] = [
+            [0, 0, 1],
+            [0, 1, 0],
+            [1, 0, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == -1)
+    }
+
+    func testExample18() throws {
+        let example2: [[Double]] = [
+            [0, 0, 1],
+            [1, 0, 0],
+            [0, 1, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == 1)
+    }
+
+    func testExample19() throws {
+        let example2: [[Double]] = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 1],
+            [0, 0, 1, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == -1)
+    }
+
+    func testExample20() throws {
+        let example2: [[Double]] = [
+            [0, 0, 0, 1],
+            [0, 0, 1, 0],
+            [0, 1, 0, 0],
+            [1, 0, 0, 0]
+        ]
+        XCTAssert(try calculateDet(example2) == 1)
     }
 }
