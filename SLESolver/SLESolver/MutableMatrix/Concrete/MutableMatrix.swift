@@ -22,6 +22,14 @@ public class MutableMatrix {
     public init(_ array: [[Double]]) {
         elementsArray = array
     }
+
+    // MARK: - Static
+
+    public static func createOneMatrix(ofSize size: Int) -> MutableMatrix {
+        var result: [[Double]] = .init(repeating: .init(repeating: 0, count: size), count: size)
+        for i in 0..<size { result[i][i] = 1 }
+        return .init(result)
+    }
 }
 
 // MARK: - MatrixOperations
