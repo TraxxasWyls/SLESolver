@@ -30,6 +30,20 @@ public class MutableMatrix {
         for i in 0..<size { result[i][i] = 1 }
         return .init(result)
     }
+
+    public static func * (lhs: MutableMatrix, rhs: MutableMatrix) -> MutableMatrix {
+        var result: [[Double]] = .init(repeating: .init(repeating: 0, count: lhs.elementsArray.count), count: lhs.elementsArray.count)
+            for i in 0..<lhs.elementsArray.count {
+                for j in 0..<rhs.elementsArray.count {
+                    var sum = 0.0
+                    for m in 0..<rhs.elementsArray.count {
+                        sum += lhs.elementsArray[i][m] * rhs.elementsArray[m][j]
+                    }
+                    result[i][j] = sum
+                }
+            }
+        return MutableMatrix(result)
+    }
 }
 
 // MARK: - MatrixOperations
@@ -95,5 +109,14 @@ extension MutableMatrix: CustomStringConvertible {
             description =  description + "\($0)" + "\n"
         }
         return description + "}"
+    }
+}
+
+// MARK: - Equatable
+
+extension MutableMatrix: Equatable {
+
+    public static func == (lhs: MutableMatrix, rhs: MutableMatrix) -> Bool {
+        lhs.elementsArray == rhs.elementsArray
     }
 }
