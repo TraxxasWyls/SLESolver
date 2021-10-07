@@ -308,7 +308,7 @@
 				TargetAttributes = {
 					CBD38C0B26F357E600521E3F = {
 						CreatedOnToolsVersion = 12.5;
-						LastSwiftMigration = 1250;
+						LastSwiftMigration = 1300;
 					};
 					CBD38C1426F357E600521E3F = {
 						CreatedOnToolsVersion = 12.5;

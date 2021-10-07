@@ -29,12 +29,8 @@ public final class ReverseMatrixComputeImplementation {
     private func convertToReverse(_ matrix: MutableMatrix) -> MutableMatrix {
         for i in 0..<matrix.elementsArray.count {
             matrix.multiply(rowWithIndex: i, to: 1 / matrix.elementsArray[i][i])
-        }
-        print(matrix)
-        for i in 0..<matrix.elementsArray.count {
             matrix.elementsArray[i].removeSubrange(0...(matrix.elementsArray[i].count / 2 - 1))
         }
-        print(matrix)
         return matrix
     }
 

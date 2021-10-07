@@ -402,4 +402,22 @@ class SLESolverTests: XCTestCase {
             XCTAssertEqual(error as? ReverseMatrixError, ReverseMatrixError.notExist)
         }
     }
+
+    func testExample33() throws {
+        let example2: [[Double]] = [
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 1],
+            [1, 2, 1, 2, 3],
+            [-1, -1, -1, 3, 1]
+        ]
+        let resultArray: [[Double]] = [
+            [-1, 8, 5, -1, -2],
+            [0, -5, -4, 1, 1],
+            [1, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0]
+        ]
+        XCTAssert(try calculateReverse(example2).elementsArray == resultArray)
+    }
 }
