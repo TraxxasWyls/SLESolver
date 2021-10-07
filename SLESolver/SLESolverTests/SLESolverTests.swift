@@ -34,6 +34,15 @@ private func calculateReverse(_ array: [[Double]]) throws -> MutableMatrix {
     return result
 }
 
+private func calculateLU(_ array: [[Double]], side: Side) throws -> (MutableMatrix, MutableMatrix) {
+    let matrix = MutableMatrix(array)
+    let luCompute = LUExpansionImplementation()
+    let result = try luCompute.expandToLU(matrix, oneDiagonalPosition: side)
+    print("Resulting L: \n \(result.0)\n Resulting U: \n \(result.1) \n")
+    print("MULT OF L*U: \n \(result.0 * result.1) \n")
+    return result
+}
+
 // MARK: - SLESolverTests
 
 class SLESolverTests: XCTestCase {
@@ -419,5 +428,54 @@ class SLESolverTests: XCTestCase {
             [0, 0, 1, 0, 0]
         ]
         XCTAssert(try calculateReverse(example2).elementsArray == resultArray)
+    }
+
+    // MARK: - LU
+
+    func testExample34() throws {
+        let example2: [[Double]] = [
+            [5, 2, 3],
+            [1, 6, 2],
+            [1, 2, 7]
+        ]
+        let res1 = try calculateLU(example2, side: .left)
+        let res2 = try calculateLU(example2, side: .right)
+        XCTAssert((res1.0 * res1.1).elementsArray == example2)
+        XCTAssert((res2.0 * res2.1).elementsArray == example2)
+    }
+
+    func testExample35() throws {
+        let example2: [[Double]] = [
+            [3, 4, -9, 5],
+            [-15, -12, 50, -16],
+            [-27, -36, 73, 8],
+            [9, 12, -10, -16]
+        ]
+        let res1 = try calculateLU(example2, side: .left)
+        let res2 = try calculateLU(example2, side: .right)
+        XCTAssert((res1.0 * res1.1).elementsArray == example2)
+        XCTAssert((res2.0 * res2.1).elementsArray == example2)
+    }
+
+    func testExample36() throws {
+        let example2: [[Double]] = [
+            [1, 2, 3],
+            [1, 2, 2],
+            [1, 9, 7]
+        ]
+        XCTAssertThrowsError(try calculateLU(example2, side: .left)) { error in
+            XCTAssertEqual(error as? LUError, LUError.dividedByZero)
+        }
+    }
+
+    func testExample37() throws {
+        let example2: [[Double]] = [
+            [1, 2, 3, 5],
+            [1, 2, 2, 5],
+            [1, 9, 7, 5]
+        ]
+        XCTAssertThrowsError(try calculateLU(example2, side: .left)) { error in
+            XCTAssertEqual(error as? LUError, LUError.nonQuadraticMatrix)
+        }
     }
 }
