@@ -18,6 +18,14 @@ private func solve(_ array: [[Double]]) throws -> Result {
     return result
 }
 
+private func solveByLU(_ array: [[Double]]) throws -> Result {
+    let matrix = MutableMatrix(array)
+    let solver = SLESolverImplementation()
+    let result = try solver.solveByLU(matrix)
+    print("\nResulting vector \(result)\n")
+    return result
+}
+
 private func calculateDet(_ array: [[Double]]) throws -> Double {
     let matrix = MutableMatrix(array)
     let detCompute = DetComputeImplementation()
@@ -477,5 +485,45 @@ class SLESolverTests: XCTestCase {
         XCTAssertThrowsError(try calculateLU(example2, side: .left)) { error in
             XCTAssertEqual(error as? LUError, LUError.nonQuadraticMatrix)
         }
+    }
+
+    // MARK: - LUSolver
+
+    func testExample38() throws {
+        let example1: [[Double]] = [
+            [1, 3, 0, 1],
+            [1, 4, 0, 1],
+            [1, 0, 1, 1]
+        ]
+        XCTAssert(try solveByLU(example1) == [1.0, 0.0, 0.0])
+    }
+
+//    func testExample39() throws {
+//        let example1: [[Double]] = [
+//            [2, 1, 1, 2],
+//            [1, -1, 0, -2],
+//            [3, -1, 2, 2]
+//        ]
+//        // 2 -3 4
+//        XCTAssert(try solveByLU(example1) == [-1.0, 1.0, 3.0])
+//    }
+//
+//    func testExample40() throws {
+//        let example2: [[Double]] = [
+//            [23, 1, 6, 0],
+//            [0, 0, 2, 2],
+//            [11, 13, 131, 5],
+//        ]
+//        XCTAssert(try solveByLU(example2) == [1.0/6, -59.0/6, 1])
+//    }
+
+    func testExample41() throws {
+        let example2: [[Double]] = [
+            [1, 0, 0, 0, 1],
+            [0, 1, 0, 0, 1],
+            [0, 0, 1, 0, 1],
+            [0, 0, 0, 1, 1],
+        ]
+        XCTAssert(try solveByLU(example2) == [1, 1, 1, 1])
     }
 }

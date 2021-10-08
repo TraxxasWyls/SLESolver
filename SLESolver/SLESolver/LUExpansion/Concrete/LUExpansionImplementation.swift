@@ -34,26 +34,22 @@ public final class LUExpansionImplementation {
 
     private func calculateU(i: Int, j: Int, matrix: [[Double]], side: Side = .left) -> Double {
         let summator = side == .left ? i : j
-        var sum: Double = 0
-        if summator > 0 {
-            for k in 0...(summator - 1) {
-                sum += matrix[i][k] * matrix[k][j]
-            }
-        }
-        return mutableMatrix.elementsArray[i][j] - sum
+        let aElement = mutableMatrix.elementsArray[i][j]
+        var sum = 0.0
+        guard summator > 0 else { return  aElement }
+        for k in 0...(summator - 1) { sum += matrix[i][k] * matrix[k][j] }
+        return aElement - sum
     }
 
     private func calculateL(i: Int, j: Int, matrix: [[Double]], side: Side = .left) throws -> Double {
         let divider = side == .left ? matrix[j][j] : matrix[i][i]
         let summator = side == .left ? j : i
+        let aElement = mutableMatrix.elementsArray[i][j]
         guard !divider.isZero else { throw LUError.dividedByZero }
-        var sum: Double = 0
-        if summator > 0 {
-            for k in 0...(summator - 1) {
-                sum += matrix[i][k] * matrix[k][j]
-            }
-        }
-        return (mutableMatrix.elementsArray[i][j] - sum) / divider
+        guard summator > 0 else { return  aElement / divider }
+        var sum = 0.0
+        for k in 0...(summator - 1) { sum += matrix[i][k] * matrix[k][j] }
+        return (aElement - sum) / divider
     }
 
     private func getResult(from matrix: [[Double]], side: Side = .left) -> (MutableMatrix, MutableMatrix) {
