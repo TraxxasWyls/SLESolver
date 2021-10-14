@@ -12,4 +12,6 @@ import Foundation
 public protocol ReverseMatrixCompute {
 
     func computeReverseMartix(from matrix: MutableMatrix) throws -> MutableMatrix
+
+    func computeReverseMartixByLU(from matrix: MutableMatrix) throws -> MutableMatrix
 }

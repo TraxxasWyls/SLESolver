@@ -39,7 +39,7 @@ public final class SLESolverImplementation {
 
     // MARK: - Private
 
-    private func diagonalNonZero(_ matrix: MutableMatrix) -> Bool {
+    public class func diagonalNonZero(_ matrix: MutableMatrix) -> Bool {
         for i in 0..<matrix.elementsArray.count {
             if matrix.elementsArray[i][i] == 0 { return false }
         }
@@ -82,7 +82,7 @@ public final class SLESolverImplementation {
         let count = yVector.count
         var xVector = Vector(repeating: 0, count: count)
         
-        guard diagonalNonZero(u) else { throw SolvingError.dividedByZero }
+        guard SLESolverImplementation.diagonalNonZero(u) else { throw SolvingError.dividedByZero }
 
         func calculateX(i: Int) -> Double {
             var sum = 0.0

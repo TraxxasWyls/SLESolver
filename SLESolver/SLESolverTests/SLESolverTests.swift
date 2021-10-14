@@ -34,10 +34,10 @@ private func calculateDet(_ array: [[Double]]) throws -> Double {
     return result
 }
 
-private func calculateReverse(_ array: [[Double]]) throws -> MutableMatrix {
+private func calculateReverse(_ array: [[Double]], byLU: Bool = false) throws -> MutableMatrix {
     let matrix = MutableMatrix(array)
     let reverseCompute = ReverseMatrixComputeImplementation()
-    let result = try reverseCompute.computeReverseMartix(from: matrix)
+    let result = byLU ? try reverseCompute.computeReverseMartixByLU(from: matrix) : try reverseCompute.computeReverseMartix(from: matrix)
     print("Resulting matrix \(result)\n")
     return result
 }
@@ -498,25 +498,6 @@ class SLESolverTests: XCTestCase {
         XCTAssert(try solveByLU(example1) == [1.0, 0.0, 0.0])
     }
 
-//    func testExample39() throws {
-//        let example1: [[Double]] = [
-//            [2, 1, 1, 2],
-//            [1, -1, 0, -2],
-//            [3, -1, 2, 2]
-//        ]
-//        // 2 -3 4
-//        XCTAssert(try solveByLU(example1) == [-1.0, 1.0, 3.0])
-//    }
-//
-//    func testExample40() throws {
-//        let example2: [[Double]] = [
-//            [23, 1, 6, 0],
-//            [0, 0, 2, 2],
-//            [11, 13, 131, 5],
-//        ]
-//        XCTAssert(try solveByLU(example2) == [1.0/6, -59.0/6, 1])
-//    }
-
     func testExample41() throws {
         let example2: [[Double]] = [
             [1, 0, 0, 0, 1],
@@ -525,5 +506,69 @@ class SLESolverTests: XCTestCase {
             [0, 0, 0, 1, 1],
         ]
         XCTAssert(try solveByLU(example2) == [1, 1, 1, 1])
+    }
+
+    // MARK: - Reverse by LU
+
+    func testExample42() throws {
+        let example2: [[Double]] = [
+            [6, 5, 0, 0],
+            [5, 4, 0, 0],
+            [0, 0, 6, 5],
+            [0, 0, 5, 4]
+        ]
+        let resultArray: [[Double]] = [
+            [-4, 5, 0, 0],
+            [5, -6, 0, 0],
+            [0, 0, -4, 5],
+            [0, 0, 5, -6]
+        ]
+        XCTAssert(try calculateReverse(example2, byLU: true).elementsArray == resultArray)
+    }
+
+    func testExample43() throws {
+        let example2: [[Double]] = [
+            [7, 4],
+            [5, 3]
+        ]
+        let resultArray: [[Double]] = [
+            [3, -4],
+            [-5, 7]
+        ]
+        XCTAssert(try calculateReverse(example2, byLU: true).elementsArray == resultArray)
+    }
+
+    func testExample44() throws {
+        let example2: [[Double]] = [
+            [1, 3, -5],
+            [0, 1, 2],
+            [0, 0, 1]
+        ]
+        let resultArray: [[Double]] = [
+            [1, -3, 11],
+            [0, 1, -2],
+            [0, 0, 1]
+        ]
+        XCTAssert(try calculateReverse(example2, byLU: true).elementsArray == resultArray)
+    }
+
+    func testExample45() throws {
+        let example2: [[Double]] = [
+            [1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1]
+        ]
+        let resultArray: [[Double]] = [
+            [1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1]
+        ]
+        XCTAssert(try calculateReverse(example2, byLU: true).elementsArray == resultArray)
     }
 }
