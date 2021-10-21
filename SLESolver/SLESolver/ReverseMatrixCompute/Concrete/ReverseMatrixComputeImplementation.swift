@@ -118,7 +118,6 @@ extension ReverseMatrixComputeImplementation: ReverseMatrixCompute {
             repeating: .init(repeating: 0, count: matrix.elementsArray.count),
             count: matrix.elementsArray.count
         )
-        var iteration = 0
         for index in (0..<count).reversed() {
             try calculateDiagonalElements(matrix: &resultingArray, uMatrix: uMatrix, j: index)
             for i in (0..<index).reversed() {
@@ -127,7 +126,6 @@ extension ReverseMatrixComputeImplementation: ReverseMatrixCompute {
             for j in (0..<index).reversed() {
                 calculateUnderDiagonalElements(matrix: &resultingArray, lMatrix: lMatrix, i: index, j: j)
             }
-            print("RESULT: \n \(MutableMatrix(resultingArray)) \n")
         }
         return MutableMatrix(resultingArray)
     }

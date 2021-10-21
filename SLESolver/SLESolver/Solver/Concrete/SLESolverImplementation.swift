@@ -33,6 +33,9 @@ public final class SLESolverImplementation {
     /// LUExpansion instance
     private let luExpander: LUExpansion = LUExpansionImplementation()
 
+    /// ReflectionMethodImplementation instance
+    private let reflectionMethod: ReflectionMethod = ReflectionMethodImplementation()
+
     // MARK: - Initializers
 
     public init() { }
@@ -132,11 +135,11 @@ extension SLESolverImplementation: SLESolver {
         let lMatrix = luTuple.0
         let uMatrix = luTuple.1
         let yVector = try calculateY(l: lMatrix, bVector: bVector)
-        print("A MATRIX: \n \(matrixA) \n ")
-        print("B VECTOR: \n \(bVector) \n ")
-        print("L: \n \(lMatrix) \n")
-        print("U: \n \(uMatrix) \n")
-        print("Y VECTOR: \n \(yVector) \n ")
         return try calculateX(u: uMatrix, yVector: yVector)
-     }
+    }
+
+    public func solveByReflections(_ matrix: MutableMatrix) throws -> Result {
+        let reflectedMatrix = try reflectionMethod.makeReflectedMatrix(fromMatrix: matrix)
+        return try solve(reflectedMatrix)
+    }
 }

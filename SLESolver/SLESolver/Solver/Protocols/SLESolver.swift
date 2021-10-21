@@ -18,4 +18,6 @@ public protocol SLESolver {
     func solve(_ matrix: MutableMatrix) throws -> Result
 
     func solveByLU(_ matrix: MutableMatrix) throws -> Result
+
+    func solveByReflections(_ matrix: MutableMatrix) throws -> Result
 }

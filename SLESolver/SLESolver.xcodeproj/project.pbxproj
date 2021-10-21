@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB41BABB2721F76400813B9C /* ReflectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41BABA2721F76400813B9C /* ReflectionMethod.swift */; };
+		CB41BABD2721F7AE00813B9C /* ReflectionMethodImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41BABC2721F7AE00813B9C /* ReflectionMethodImplementation.swift */; };
 		CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D16D26FCD81F00BDD97E /* Array.swift */; };
 		CBA0D21F26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D21E26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift */; };
 		CBA0D22126FDE35100BDD97E /* ReverseMatrixCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB41BABA2721F76400813B9C /* ReflectionMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionMethod.swift; sourceTree = "<group>"; };
+		CB41BABC2721F7AE00813B9C /* ReflectionMethodImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionMethodImplementation.swift; sourceTree = "<group>"; };
 		CBA0D16D26FCD81F00BDD97E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CBA0D21E26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMatrixComputeImplementation.swift; sourceTree = "<group>"; };
 		CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMatrixCompute.swift; sourceTree = "<group>"; };
@@ -76,6 +80,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB41BAB72721F70200813B9C /* ReflectionMethod */ = {
+			isa = PBXGroup;
+			children = (
+				CB41BAB92721F71B00813B9C /* Protocol */,
+				CB41BAB82721F71400813B9C /* Concrete */,
+			);
+			path = ReflectionMethod;
+			sourceTree = "<group>";
+		};
+		CB41BAB82721F71400813B9C /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				CB41BABC2721F7AE00813B9C /* ReflectionMethodImplementation.swift */,
+			);
+			path = Concrete;
+			sourceTree = "<group>";
+		};
+		CB41BAB92721F71B00813B9C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CB41BABA2721F76400813B9C /* ReflectionMethod.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		CBA0D16C26FCD80800BDD97E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +184,7 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
+				CB41BAB72721F70200813B9C /* ReflectionMethod */,
 				CBC9DBCF270F04A9006F1149 /* LUExpansion */,
 				CBA0D21B26FDE2F600BDD97E /* ReverseMatrixCompute */,
 				CBA0D16C26FCD80800BDD97E /* Extensions */,
@@ -395,10 +425,12 @@
 				CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */,
 				CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */,
 				CBA0D21F26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift in Sources */,
+				CB41BABD2721F7AE00813B9C /* ReflectionMethodImplementation.swift in Sources */,
 				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
 				CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */,
 				CBD38CA726F4B37100521E3F /* DetCompute.swift in Sources */,
 				CBD38C8726F3629000521E3F /* MutableMatrix.swift in Sources */,
+				CB41BABB2721F76400813B9C /* ReflectionMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

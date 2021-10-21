@@ -44,6 +44,18 @@ public class MutableMatrix {
             }
         return MutableMatrix(result)
     }
+
+    public static func * (lhs: MutableMatrix, rhs: Vector) -> Vector {
+        var result: Vector = .init(repeating: 0, count: lhs.elementsArray.count)
+            for i in 0..<lhs.elementsArray.count {
+                    var sum = 0.0
+                    for m in 0..<rhs.count {
+                        sum += lhs.elementsArray[i][m] * rhs[m]
+                    }
+                    result[i] = sum
+            }
+        return result
+    }
 }
 
 // MARK: - MatrixOperations
