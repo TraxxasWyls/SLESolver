@@ -32,9 +32,9 @@ public class MutableMatrix {
     }
 
     public static func * (lhs: MutableMatrix, rhs: MutableMatrix) -> MutableMatrix {
-        var result: [[Double]] = .init(repeating: .init(repeating: 0, count: lhs.elementsArray.count), count: lhs.elementsArray.count)
+        var result: [[Double]] = .init(repeating: .init(repeating: 0, count: rhs.elementsArray[0].count), count: lhs.elementsArray.count)
             for i in 0..<lhs.elementsArray.count {
-                for j in 0..<rhs.elementsArray.count {
+                for j in 0..<rhs.elementsArray[0].count {
                     var sum = 0.0
                     for m in 0..<rhs.elementsArray.count {
                         sum += lhs.elementsArray[i][m] * rhs.elementsArray[m][j]
@@ -54,6 +54,18 @@ public class MutableMatrix {
                     }
                     result[i] = sum
             }
+        return result
+    }
+
+    public static func - (lhs: MutableMatrix, rhs: MutableMatrix) throws -> MutableMatrix {
+        guard lhs.elementsArray.count == rhs.elementsArray.count else { throw VectorError.sizesNotEqual }
+        let count = lhs.elementsArray.count
+        let result: MutableMatrix = .init(.init(repeating: .init(repeating: .zero, count: count), count: count))
+        for i in 0..<count {
+            for j in 0..<count {
+                result.elementsArray[i][j] = lhs.elementsArray[i][j] - rhs.elementsArray[i][j]
+            }
+        }
         return result
     }
 }

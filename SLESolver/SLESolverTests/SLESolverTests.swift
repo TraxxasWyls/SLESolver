@@ -770,7 +770,7 @@ class SLESolverTests: XCTestCase {
         let example2: [[Double]] = [
             [23, 1, 6, 0],
             [0, 0, 2, 2],
-            [11, 13, 131, 5],
+            [11, 13, 131, 5]
         ]
         XCTAssert(try solveByReflections(example2) == [1.0/6, -59.0/6, 1])
     }
@@ -780,7 +780,7 @@ class SLESolverTests: XCTestCase {
             [1, 0, 4, 5, 6],
             [9, 10, 11, 12, 13],
             [14, 15, 16, 17, 18],
-            [19, 20, 21, 23, 9],
+            [19, 20, 21, 23, 9]
         ]
         XCTAssert(try solveByReflections(example2) == [-9.6, 3.2, 21.4, -14])
     }
@@ -790,8 +790,39 @@ class SLESolverTests: XCTestCase {
             [1, 0, 0, 0, 1],
             [0, 1, 0, 0, 1],
             [0, 0, 1, 0, 1],
-            [0, 0, 0, 1, 1],
+            [0, 0, 0, 1, 1]
         ]
         XCTAssert(try solveByReflections(example2) == [1, 1, 1, 1])
+    }
+
+    func testExample63() throws {
+        let example2: [[Double]] = [
+            [1, -2, 1, 6],
+            [2, -1, 3, 11],
+            [2, 3, -4, -7]
+        ]
+        XCTAssert(try solveByReflections(example2) == [2, -1, 2])
+    }
+
+    func testExample64() throws {
+        let example2: [[Double]] = [
+           [0, 0, -1, 2, 4, 1],
+           [0, 0, 3, 0, -2, 3],
+           [0, 0, 4, 1, 0, 5],
+           [2, 0, 0, 0, 0, 2],
+           [0, 2, 1, 0, 0, 3]
+        ]
+        XCTAssert(try solveByReflections(example2) == [2, -1, 2])
+    }
+
+    func testExample65() throws {
+        let example2: [[Double]] = [
+           [0, 0, -1, 2, 4, 5],
+           [0, 0, -1, 0, 2, 1],
+           [0, -1, 0, -2, 0, -3],
+           [2, 0, -2, 0, 0, 0],
+           [4, 2, -1, 0, 0, 5]
+        ]
+        XCTAssert(try solveByReflections(example2) == [2, -1, 2])
     }
 }

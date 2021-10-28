@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB41BABB2721F76400813B9C /* ReflectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41BABA2721F76400813B9C /* ReflectionMethod.swift */; };
 		CB41BABD2721F7AE00813B9C /* ReflectionMethodImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41BABC2721F7AE00813B9C /* ReflectionMethodImplementation.swift */; };
+		CB41BAC32722925900813B9C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41BAC22722925900813B9C /* Double.swift */; };
 		CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D16D26FCD81F00BDD97E /* Array.swift */; };
 		CBA0D21F26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D21E26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift */; };
 		CBA0D22126FDE35100BDD97E /* ReverseMatrixCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		CB41BABA2721F76400813B9C /* ReflectionMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionMethod.swift; sourceTree = "<group>"; };
 		CB41BABC2721F7AE00813B9C /* ReflectionMethodImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionMethodImplementation.swift; sourceTree = "<group>"; };
+		CB41BAC22722925900813B9C /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		CBA0D16D26FCD81F00BDD97E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CBA0D21E26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMatrixComputeImplementation.swift; sourceTree = "<group>"; };
 		CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMatrixCompute.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA0D16D26FCD81F00BDD97E /* Array.swift */,
+				CB41BAC22722925900813B9C /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			files = (
 				CBC9DBD6270F06B5006F1149 /* LUExpansionImplementation.swift in Sources */,
 				CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */,
+				CB41BAC32722925900813B9C /* Double.swift in Sources */,
 				CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */,
 				CBC9DBD4270F0515006F1149 /* LUExpansion.swift in Sources */,
 				CBA0D22126FDE35100BDD97E /* ReverseMatrixCompute.swift in Sources */,
