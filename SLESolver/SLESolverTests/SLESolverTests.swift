@@ -825,4 +825,21 @@ class SLESolverTests: XCTestCase {
         ]
         XCTAssert(try solveByReflections(example2) == [2, -1, 2])
     }
+
+    func testExample66() throws {
+        let aitken = AitkenSchemeInterpolator()
+        let interval = (1.0, 1.6)
+        let count = 6
+        let controlPoints: [CGPoint] = [
+            .init(x: 1.0, y: 1.0),
+            .init(x: 1.1, y: 1.032),
+            .init(x: 1.3, y: 1.091),
+            .init(x: 1.5, y: 1.145),
+            .init(x: 1.6, y: 1.170)
+        ]
+        let points = aitken.interpolate(controlPoints: controlPoints, interval: interval, plotPointsCount: count)
+        print("Interval = \(interval)")
+        print("Result = \(points)")
+        XCTAssert(1 == 1)
+    }
 }

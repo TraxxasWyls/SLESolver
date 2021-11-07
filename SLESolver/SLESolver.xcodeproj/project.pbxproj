@@ -15,6 +15,8 @@
 		CBA0D22126FDE35100BDD97E /* ReverseMatrixCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */; };
 		CBC9DBD4270F0515006F1149 /* LUExpansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9DBD3270F0515006F1149 /* LUExpansion.swift */; };
 		CBC9DBD6270F06B5006F1149 /* LUExpansionImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9DBD5270F06B5006F1149 /* LUExpansionImplementation.swift */; };
+		CBD0B215272AB247003224A2 /* AitkenScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0B214272AB247003224A2 /* AitkenScheme.swift */; };
+		CBD0B21A272AB664003224A2 /* Polynom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD0B219272AB664003224A2 /* Polynom.swift */; };
 		CBD38C1626F357E600521E3F /* SLESolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD38C0C26F357E600521E3F /* SLESolver.framework */; };
 		CBD38C1B26F357E600521E3F /* SLESolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C1A26F357E600521E3F /* SLESolverTests.swift */; };
 		CBD38C1D26F357E600521E3F /* SLESolver.h in Headers */ = {isa = PBXBuildFile; fileRef = CBD38C0F26F357E600521E3F /* SLESolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +28,7 @@
 		CBD38CA026F39C6F00521E3F /* SLESolverImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */; };
 		CBD38CA726F4B37100521E3F /* DetCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38CA626F4B37100521E3F /* DetCompute.swift */; };
 		CBD38CA926F4B3C100521E3F /* DetComputeImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD38CA826F4B3C100521E3F /* DetComputeImplementation.swift */; };
+		CBFBB2372737E77D0059A481 /* AitkenSchemeInterpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFBB2362737E77D0059A481 /* AitkenSchemeInterpolator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,8 @@
 		CBA0D22026FDE35100BDD97E /* ReverseMatrixCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseMatrixCompute.swift; sourceTree = "<group>"; };
 		CBC9DBD3270F0515006F1149 /* LUExpansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUExpansion.swift; sourceTree = "<group>"; };
 		CBC9DBD5270F06B5006F1149 /* LUExpansionImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUExpansionImplementation.swift; sourceTree = "<group>"; };
+		CBD0B214272AB247003224A2 /* AitkenScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AitkenScheme.swift; sourceTree = "<group>"; };
+		CBD0B219272AB664003224A2 /* Polynom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polynom.swift; sourceTree = "<group>"; };
 		CBD38C0C26F357E600521E3F /* SLESolver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SLESolver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD38C0F26F357E600521E3F /* SLESolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLESolver.h; sourceTree = "<group>"; };
 		CBD38C1026F357E600521E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		CBD38C9F26F39C6F00521E3F /* SLESolverImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLESolverImplementation.swift; sourceTree = "<group>"; };
 		CBD38CA626F4B37100521E3F /* DetCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetCompute.swift; sourceTree = "<group>"; };
 		CBD38CA826F4B3C100521E3F /* DetComputeImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetComputeImplementation.swift; sourceTree = "<group>"; };
+		CBFBB2362737E77D0059A481 /* AitkenSchemeInterpolator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AitkenSchemeInterpolator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,69 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		CBD0B20F272AB1BC003224A2 /* SLE */ = {
+			isa = PBXGroup;
+			children = (
+				CBD38CA326F4B32B00521E3F /* DetCompute */,
+				CBD38C9A26F39B9B00521E3F /* Solver */,
+				CBD38C8D26F36DB900521E3F /* MatrixLinearizer */,
+				CB41BAB72721F70200813B9C /* ReflectionMethod */,
+				CBC9DBCF270F04A9006F1149 /* LUExpansion */,
+				CBA0D21B26FDE2F600BDD97E /* ReverseMatrixCompute */,
+			);
+			path = SLE;
+			sourceTree = "<group>";
+		};
+		CBD0B210272AB1D1003224A2 /* Interpolation */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0B211272AB1E6003224A2 /* AitkenScheme */,
+			);
+			path = Interpolation;
+			sourceTree = "<group>";
+		};
+		CBD0B211272AB1E6003224A2 /* AitkenScheme */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0B213272AB234003224A2 /* Protocols */,
+				CBD0B212272AB22E003224A2 /* Concrete */,
+			);
+			path = AitkenScheme;
+			sourceTree = "<group>";
+		};
+		CBD0B212272AB22E003224A2 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				CBFBB2362737E77D0059A481 /* AitkenSchemeInterpolator.swift */,
+			);
+			path = Concrete;
+			sourceTree = "<group>";
+		};
+		CBD0B213272AB234003224A2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0B214272AB247003224A2 /* AitkenScheme.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CBD0B216272AB632003224A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0B217272AB64B003224A2 /* Polynom */,
+				CBD38C7F26F361C400521E3F /* MutableMatrix */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBD0B217272AB64B003224A2 /* Polynom */ = {
+			isa = PBXGroup;
+			children = (
+				CBD0B219272AB664003224A2 /* Polynom.swift */,
+			);
+			path = Polynom;
+			sourceTree = "<group>";
+		};
 		CBD38C0226F357E600521E3F = {
 			isa = PBXGroup;
 			children = (
@@ -187,14 +256,10 @@
 		CBD38C0E26F357E600521E3F /* SLESolver */ = {
 			isa = PBXGroup;
 			children = (
-				CB41BAB72721F70200813B9C /* ReflectionMethod */,
-				CBC9DBCF270F04A9006F1149 /* LUExpansion */,
-				CBA0D21B26FDE2F600BDD97E /* ReverseMatrixCompute */,
+				CBD0B216272AB632003224A2 /* Models */,
+				CBD0B210272AB1D1003224A2 /* Interpolation */,
+				CBD0B20F272AB1BC003224A2 /* SLE */,
 				CBA0D16C26FCD80800BDD97E /* Extensions */,
-				CBD38CA326F4B32B00521E3F /* DetCompute */,
-				CBD38C9A26F39B9B00521E3F /* Solver */,
-				CBD38C8D26F36DB900521E3F /* MatrixLinearizer */,
-				CBD38C7F26F361C400521E3F /* MutableMatrix */,
 				CBD38C0F26F357E600521E3F /* SLESolver.h */,
 				CBD38C1026F357E600521E3F /* Info.plist */,
 			);
@@ -421,6 +486,7 @@
 			files = (
 				CBC9DBD6270F06B5006F1149 /* LUExpansionImplementation.swift in Sources */,
 				CBA0D16E26FCD81F00BDD97E /* Array.swift in Sources */,
+				CBD0B215272AB247003224A2 /* AitkenScheme.swift in Sources */,
 				CB41BAC32722925900813B9C /* Double.swift in Sources */,
 				CBD38C9E26F39BDF00521E3F /* SLESolver.swift in Sources */,
 				CBC9DBD4270F0515006F1149 /* LUExpansion.swift in Sources */,
@@ -428,6 +494,7 @@
 				CBD38CA926F4B3C100521E3F /* DetComputeImplementation.swift in Sources */,
 				CBD38C9126F36DFC00521E3F /* MatrixLinearizer.swift in Sources */,
 				CBD38C9326F36E6700521E3F /* MatrixLinearizerImplementation.swift in Sources */,
+				CBD0B21A272AB664003224A2 /* Polynom.swift in Sources */,
 				CBA0D21F26FDE34C00BDD97E /* ReverseMatrixComputeImplementation.swift in Sources */,
 				CB41BABD2721F7AE00813B9C /* ReflectionMethodImplementation.swift in Sources */,
 				CBD38C8B26F363F100521E3F /* MatrixOperations.swift in Sources */,
@@ -435,6 +502,7 @@
 				CBD38CA726F4B37100521E3F /* DetCompute.swift in Sources */,
 				CBD38C8726F3629000521E3F /* MutableMatrix.swift in Sources */,
 				CB41BABB2721F76400813B9C /* ReflectionMethod.swift in Sources */,
+				CBFBB2372737E77D0059A481 /* AitkenSchemeInterpolator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
